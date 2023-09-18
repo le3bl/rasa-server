@@ -1,0 +1,56 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - hello_world
+  - give_name
+  - how_big
+  - experience_info
+  - bot_what
+  - feelings
+
+entities:
+  - PERSON
+  - THING
+
+slots:
+  PERSON:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: PERSON
+  THING:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: THING
+
+actions:
+  - action_greet_user
+  - action_hello_world
+  - action_ask_gpt
+
+responses:
+  utter_greet:
+  - text: "Hello. This is a bot created by Andrew Shaw trained on his professional background, work history, projects, and resume. Feel free to delve into my professional journey."
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_iamrasa:
+  - text: "I am a chat bot built on Rasa version 3.1."
+
+  utter_please_rephrase:
+    - text: "I'm sorry, but I am unable to provide a response to that type of prompt. Please try asking about my experience with a specific topic."
+
+  utter_cannot_feel:
+    - text: "While this bot can provide data and factual information, it is not equipped to discuss or understand emotional perspectives."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

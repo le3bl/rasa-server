@@ -1,0 +1,8 @@
+.config/
+config.yml
+credentials.yml
+endpoints.yml
+*.log
+.bash_history
+models/
+.rasa/

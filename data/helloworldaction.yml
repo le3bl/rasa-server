@@ -1,0 +1,36 @@
+nlu:
+- intent: hello_world
+  examples: |
+    - Hello world
+    - Hi world
+    - Hey world
+    - Good morning world
+
+- intent: how_big
+  examples: |
+    - how big is [Thing](THING)
+    - how large is [Object](THING)
+    - how many stuff in [Container](Thing)
+
+- intent: give_name
+  examples: |
+    - I am [John](PERSON)
+    - My name is [Alice](PERSON)
+    - Call me [Bob](PERSON)
+
+stories:
+- story: name story
+  steps:
+  - intent: give_name
+  - action: action_greet_user
+
+- story: hello world
+  steps:
+  - intent: hello_world
+  - action: utter_greet
+  - action: action_hello_world
+
+- story: how big
+  steps:
+  - intent: how_big
+  - action: action_ask_gpt

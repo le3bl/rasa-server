@@ -1,0 +1,58 @@
+version: "3.1"
+
+nlu:
+- intent: bot_what
+  examples: |
+    - what are you?
+    - who are you?
+
+- intent: greet
+  examples: |
+    - greet
+    - /greet
+
+- intent: feelings
+  examples: |
+    - how do you feel about
+    - do you enjoy
+    - do you hate
+    - what do you like
+    - what is your favorite
+
+- intent: experience_info
+  examples: |
+    - what is your experience with framework
+    - do you have any experience with language
+    - have you worked with this
+    - describe your history with this
+    - can you explain how you have used some library
+    - on a scale of 1 to 10 how would you rate yourself in this
+    - how familiar are you with this
+    - do you know anything about that
+    - would you consider yourself an expert in that
+    - what if anything have you done with this
+    - are you interested in this responsibility or task
+    - do you know this
+    - what can you tell me about that
+  
+rules:
+
+- rule: Explain what you are when asked
+  steps:
+  - intent: bot_what
+  - action: utter_iamrasa
+
+stories:
+
+- story: experience path
+  steps:
+  - intent: experience_info
+  - action: action_ask_gpt
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+- story: ask about feeling
+  steps:
+  - intent: feelings
+  - action: utter_cannot_feel
